@@ -237,7 +237,7 @@
 
     keymap {
         compatible = "zmk,keymap";
-// Add caps and del
+// Add caps and del keys, add funtion keys like play-pause, next, previous.
         default_layer {
             display-name = "DEFAULT";
             bindings = <
@@ -280,6 +280,17 @@
 &trans &kp F1 &kp F2 &kp F3 &kp F4 &kp F5              &trans     &trans &trans &trans &trans &trans &trans
 &trans &kp F6 &kp F7 &kp F8 &kp F9 &kp F10         &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &kp F11 &kp F12   &trans      &trans     &trans  &trans &trans &trans &trans &trans
+                    &trans  &trans  &trans                       &trans    &trans     &trans
+            >;
+
+            sensor-bindings = <&scroll_encoder>;
+        };
+        adjust_layer {
+            display-name = "ADJUST";
+            bindings = <
+&bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &trans     &hw_soft_off &ext_power EP_TOG &trans &trans &trans &studio_unlock
+&trans &trans &trans &trans &trans &trans         &trans &trans &trans &trans &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans   &trans      &trans     &trans  &trans &trans &trans &trans &trans
                     &trans  &trans  &trans                       &trans    &trans     &trans
             >;
 
