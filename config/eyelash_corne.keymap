@@ -43,6 +43,14 @@
         };
     };
 
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        tri_layer {
+            if-layers = <1 2>;    // when LOWER (1) and RAISE (2) are active
+            then-layer = <4>;     // activate layer 4
+        };
+    };
+
     macros {
         M0: M0 {
             label = "M0";
@@ -274,9 +282,6 @@
 &trans &trans &trans &trans &kp F11 &kp F12   &trans      &trans     &trans  &trans &trans &trans &trans &trans
                     &trans  &trans  &trans                       &trans    &trans     &trans
             >;
-
-            sensor-bindings = <&scroll_encoder>;
-        };
 
             sensor-bindings = <&scroll_encoder>;
         };
