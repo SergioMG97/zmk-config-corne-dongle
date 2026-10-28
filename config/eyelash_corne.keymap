@@ -41,6 +41,14 @@
             #binding-cells = <0>;
             bindings = <&kp LEFT_SHIFT>, <&kp CAPS>;
         };
+
+        ntilde: ntilde {
+            compatible = "zmk,behavior-mod-morph";
+            display-name = "ñ / Ñ";
+            #binding-cells = <0>;
+            bindings = <&N_TILDE>, <&N_TILDE_UPPER>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
     };
 
     conditional_layers {
@@ -185,8 +193,16 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <1>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N>, <&macro_release &kp LALT>, <&macro_tap &kp N>;
-        }; 
+            bindings = <&macro_press &kp RALT>, <&macro_tap &kp N>, <&macro_release &kp RALT>, <&macro_tap &kp N>;
+        };
+
+        N_TILDE_UPPER: N_TILDE_UPPER {
+            label = "N_TILDE_UPPER";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <1>;
+            bindings = <&macro_press &kp RALT>, <&macro_tap &kp N>, <&macro_release &kp RALT>, <&macro_tap &kp LS(N)>;
+        };
 
         HOME_SYM: HOME_SYM {
             label = "HOME_SYM";
@@ -201,7 +217,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <1>;
-            bindings = <&macro_press &kp LALT &kp LSHFT>, <&macro_tap &kp QMARK>, <&macro_release &kp LSHFT &kp LALT>;
+            bindings = <&macro_press &kp RALT &kp LSHFT>, <&macro_tap &kp QMARK>, <&macro_release &kp LSHFT &kp RALT>;
         };
 
         INV_EXCL: INV_EXCL {
@@ -209,7 +225,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <1>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N1>, <&macro_release &kp LALT>;
+            bindings = <&macro_press &kp RALT>, <&macro_tap &kp N1>, <&macro_release &kp RALT>;
         };
 
         ORD_MASC: ORD_MASC {
@@ -217,7 +233,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <1>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0>, <&macro_release &kp LALT>;
+            bindings = <&macro_press &kp RALT>, <&macro_tap &kp N0>, <&macro_release &kp RALT>;
         };
     };
 
@@ -242,7 +258,7 @@
             display-name = "DEFAULT";
             bindings = <
 &kp TAB    &kp Q  &kp W  &kp E  &kp R  &kp T                &kp C_VOL_UP  &kp Y  &kp U  &kp I  &kp O  &kp P  &kp BSPC
-&kp LSHFT &kp A  &kp S  &kp D  &kp F  &kp G  &kp C_BRI_DN &kp C_MUTE &kp C_BRI_UP &kp H  &kp J  &kp K  &kp L &N_TILDE &kp RA(E)
+&kp LSHFT &kp A  &kp S  &kp D  &kp F  &kp G  &kp C_BRI_DN &kp C_MUTE &kp C_BRI_UP &kp H  &kp J  &kp K  &kp L &ntilde &kp FSLH
 &kp LCTRL  &kp Z  &kp X  &kp C  &kp V  &kp B  &kp SPACE  &kp C_VOL_DN  &kp N  &kp M  &kp COMMA  &kp DOT  &kp MINUS  &kp ESC
                         &kp LGUI &mo 1   &mt LALT RET    &kp SPACE    &mo 2 &mo 3
             >;
