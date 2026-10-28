@@ -27,8 +27,8 @@ layers:
   - J
   - K
   - L
-  - '&N_TILDE'
-  - AltGr+E
+  - {t: '&N_TILDE', s: '&N_TILDE_UPPER'}
+  - {t: /, s: '?'}
   - $$mdi:apple-keyboard-control$$
   - Z
   - X
